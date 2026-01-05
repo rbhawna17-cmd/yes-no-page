@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quick Question</title>
+  <style>
+    body {
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+    }
+
+    .screen {
+      display: none;
+      text-align: center;
+    }
+
+    .active {
+      display: block;
+    }
+
+    h1 {
+      color: #2c3e50;
+    }
+
+    h2 {
+      color: #333399;
+    }
+
+    button {
+      padding: 12px 28px;
+      font-size: 16px;
+      margin-top: 20px;
+      cursor: pointer;
+      border: none;
+      border-radius: 8px;
+    }
+
+    .primary-btn {
+      background-color: #7c3aed;
+      color: white;
+    }
+
+    #yesBtn {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    #noBtn {
+      background-color: #ff4d4d;
+      color: white;
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Opening Screen -->
+  <div id="welcome" class="screen active">
+    <h1>Thank YOU For Sticking With ME 💜</h1>
+    <button class="primary-btn" onclick="goToQuestion()">Continue</button>
+  </div>
+
+  <!-- Question Screen -->
+  <div id="question" class="screen">
+    <h2>I am Sorry for all the DRAMA,I am sure you are Sorry too 😊</h2>
+    <button id="yesBtn" onclick="goToSuccess()">Yes</button>
+    <button id="noBtn">No</button>
+  </div>
+
+  <script>
+    function goToQuestion() {
+      document.getElementById("welcome").classList.remove("active");
+      document.getElementById("question").classList.add("active");
+    }
+
+    function goToSuccess() {
+  window.location.href = "success.html";
+   }
+
+
+    const noBtn = document.getElementById("noBtn");
+
+    noBtn.addEventListener("mouseover", () => {
+      const x = Math.random() * (window.innerWidth - 100);
+      const y = Math.random() * (window.innerHeight - 50);
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    });
+  </script>
+
+</body>
+</html>
